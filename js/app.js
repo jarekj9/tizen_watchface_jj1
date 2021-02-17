@@ -15,9 +15,10 @@
  */
 
 (function() {
-    var timerUpdateDate = 0,
+    var datetime = tizen.time.getCurrentDateTime(),
+        timerUpdateDate = 0,
         hourWeatherUpdated = 0,
-        steps = 0,
+        dayStepsReset = 0,
         flagConsole = false,
         flagDigital = false,
         battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery,
@@ -36,7 +37,6 @@
      */
     function updateDate(prevDay) {
         var nextInterval,
-            datetime = tizen.time.getCurrentDateTime(),
             strDay = document.getElementById("str-day"),
             strFullDate,
             getDay = datetime.getDay(),
@@ -89,15 +89,20 @@
     }
     
     function updateWeather() {
-        var timeout = 1800000;
-        var datetime = tizen.time.getCurrentDateTime();
         var hour = datetime.getHours();
         if (hour != hourWeatherUpdated) {
-        	console.log("Hours different, update weather!");
-            stopPedometer();    // FOR TEST RESET PEDO EVERY HOUR
-            startPedometer();
+            console.log("Hours different, update weather!");
             getWeather();
             hourWeatherUpdated = hour;
+        }
+    }
+
+    function updateSteps() {
+        var day = datetime.getDay();
+        if (day != dayStepsReset) {
+            stopPedometer();
+            startPedometer();
+            dayStepsReset = day;
         }
     }
 
@@ -110,7 +115,6 @@
             strConsole = document.getElementById("str-console"),
             strMinutes = document.getElementById("str-minutes"),
             strAmpm = document.getElementById("str-ampm"),
-            datetime = tizen.time.getCurrentDateTime(),
             hour = datetime.getHours(),
             minute = datetime.getMinutes();
 
@@ -182,9 +186,11 @@
      * @private
      */
     function updateWatch() {
+        datetime = tizen.time.getCurrentDateTime();
         updateTime();
         updateDate(0);
         updateWeather();
+        updateSteps();
     }
     
     
@@ -277,7 +283,6 @@
      */
     function getWeather() {
         var xhr = new XMLHttpRequest();
-        var datetime = tizen.time.getCurrentDateTime();
         xhr.open('GET', WEATHER_URL, true);
         xhr.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -288,14 +293,35 @@
                 console.log('Weather connection ok');
                 var resp = JSON.parse(this.responseText);
                 var weatherSpan = document.getElementById('weather-val');
+                var weatherSpan3 = document.getElementById('weather-val3');
+                var weatherSpan6 = document.getElementById('weather-val6');
+                var weatherSpan9 = document.getElementById('weather-val9');
                 var debugDiv = document.getElementById('debug');   //DEBUG
                 temp =  Math.round(resp['current']['temp']);
+                temp3 =  Math.round(resp['hourly'][3]['temp']);
+                temp6 =  Math.round(resp['hourly'][6]['temp']);
+                temp9 =  Math.round(resp['hourly'][9]['temp']);
                 weatherSpan.innerHTML = temp;
-                debugDiv.innerHTML = datetime.getHours() + ':' + datetime.getMinutes();    //DEBUG
+                weatherSpan3.innerHTML = temp3;
+                weatherSpan6.innerHTML = temp6;
+                weatherSpan9.innerHTML = temp9;
+                debugDiv.innerHTML = getHourStr() + ':' + getMinuteStr();    //DEBUG
             } 
         }
         xhr.send();
     } 
+
+    function getMinuteStr() {
+        var minute = datetime.getMinutes(),
+            strMinutes = minute < 10 ? "0" + minute : minute;
+        return strMinutes;
+    }
+    function getHourStr() {
+        var hour = datetime.getHours(),
+            strHours = hour < 10 ? "0" + hour : hour;
+        return strHours;
+    }
+    
     
     
     /**

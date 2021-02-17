@@ -29,8 +29,8 @@ body {
     position: absolute;
     width: 11%;
     height: 6%;
-    top: 10%;
-    left: 63%;
+    top: 80%;
+    left: 70%;
 }
 
 #weather {
@@ -41,6 +41,38 @@ body {
     height: 6%;
     top: 10%;
     left: 43%;
+}
+
+#weather3 {
+	font-size: 150%;
+	color: white;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 10%;
+    left: 60%;
+}
+.mini {
+	font-size: 60%;
+	color: white;
+}
+#weather6 {
+	font-size: 150%;
+	color: white;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 16%;
+    left: 64%;
+}
+#weather9 {
+	font-size: 150%;
+	color: white;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 22%;
+    left: 68%;
 }
 #stepsHeader {
 	font-size: 100%;
