@@ -93,7 +93,7 @@ body {
     left: 23%;
 }
 
-#debug {
+#weatherUpdateTime {
 	font-size: 100%;
 	color: white;
     position: absolute;
@@ -149,8 +149,17 @@ string day & month
     top: 55%;
     left: 24%;
 }
-
-#str-day {
+#weekDay {
+    font-size: 250%;
+    color: white;
+    float: left;
+}
+#day {
+    font-size: 250%;
+    color: red;
+    float: left;
+}
+#month {
     font-size: 250%;
     color: white;
     float: left;

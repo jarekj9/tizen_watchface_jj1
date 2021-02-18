@@ -1,19 +1,3 @@
-/*
- * Copyright (c) 2015 Samsung Electronics Co., Ltd. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 (function() {
     var datetime = tizen.time.getCurrentDateTime(),
         timerUpdateDate = 0,
@@ -37,7 +21,9 @@
      */
     function updateDate(prevDay) {
         var nextInterval,
-            strDay = document.getElementById("str-day"),
+            strDay = document.getElementById("day"),
+            strWeekDay = document.getElementById("weekDay"),
+            strMonth = document.getElementById("month"),
             strFullDate,
             getDay = datetime.getDay(),
             getDate = datetime.getDate(),
@@ -73,7 +59,10 @@
         }
 
         strFullDate = arrDay[getDay] + " " + getDate + " " + arrMonth[getMonth];
-        strDay.innerHTML = strFullDate;
+        //strDay.innerHTML = strFullDate;
+        strWeekDay.innerHTML = arrDay[getDay] + "&nbsp;";
+        strDay.innerHTML = getDate + "&nbsp;";
+        strMonth.innerHTML = arrMonth[getMonth];
 
         
      
@@ -296,7 +285,7 @@
                 var weatherSpan3 = document.getElementById('weather-val3');
                 var weatherSpan6 = document.getElementById('weather-val6');
                 var weatherSpan9 = document.getElementById('weather-val9');
-                var debugDiv = document.getElementById('debug');   //DEBUG
+                var weatherUpdateTimeDiv = document.getElementById('weatherUpdateTime');
                 temp =  Math.round(resp['current']['temp']);
                 temp3 =  Math.round(resp['hourly'][3]['temp']);
                 temp6 =  Math.round(resp['hourly'][6]['temp']);
@@ -305,7 +294,7 @@
                 weatherSpan3.innerHTML = temp3;
                 weatherSpan6.innerHTML = temp6;
                 weatherSpan9.innerHTML = temp9;
-                debugDiv.innerHTML = getHourStr() + ':' + getMinuteStr();    //DEBUG
+                weatherUpdateTimeDiv.innerHTML = getHourStr() + ':' + getMinuteStr();
             } 
         }
         xhr.send();
