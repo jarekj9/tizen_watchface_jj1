@@ -303,15 +303,18 @@
         }
         xhr.send();
     } 
-
+    
+    function timePartAddZero(timePart) {
+    	return timePart < 10 ? "0" + timePart : timePart;
+    }
     function getMinuteStr() {
         var minute = datetime.getMinutes(),
-            strMinutes = minute < 10 ? "0" + minute : minute;
+            strMinutes = timePartAddZero(minute);
         return strMinutes;
     }
     function getHourStr() {
         var hour = datetime.getHours(),
-            strHours = hour < 10 ? "0" + hour : hour;
+            strHours = timePartAddZero(hour);
         return strHours;
     }
     
@@ -358,12 +361,18 @@
         xhr.send();
     }
     
+
+    
     function getSuntime() {
-	    var sunriseDiv = document.getElementById('sunrise-val');
-	    var sunsetDiv = document.getElementById('sunset-val');
-		var times = SunCalc.getTimes(new Date(), latitude, longitude);
-		var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
-		var sunsetStr = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+	    var sunriseDiv = document.getElementById('sunrise-val'),
+		    sunsetDiv = document.getElementById('sunset-val'),
+			times = SunCalc.getTimes(new Date(), latitude, longitude),
+			sunriseMinutes = timePartAddZero(times.sunrise.getMinutes()),
+			sunriseHours = timePartAddZero(times.sunrise.getHours()),
+			sunsetMinutes = timePartAddZero(times.sunset.getMinutes()),
+			sunsetHours = timePartAddZero(times.sunset.getHours()),
+			sunriseStr = sunriseHours + ':' + sunriseMinutes,
+			sunsetStr = sunsetHours + ':' + sunsetMinutes;
 		sunriseDiv.innerHTML = sunriseStr;
 		sunsetDiv.innerHTML = sunsetStr;
     }
