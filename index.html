@@ -28,9 +28,21 @@
         <div class='RobotoLight' id='rec-string-time'>
             <span id='weekDay'></span><span id='day'></span><span id='month'></span>
         </div>
+        <table id='suntime'>
+        	<tr>
+	        	<td>&#9728;</td>
+	        <td style="float:left;">
+		        <div id='sunrise'><span class="mini">&nbsp;</span><span id='sunrise-val'>00:00</span></div>
+		        <div id='sunset'><span class="mini">&nbsp;</span><span id='sunset-val'>00:00</span></div>
+		    </td>
+		    </tr>
+        </table>
+        <div id='locationName'><span id='locationName-val'>City</span></div>
+        <div id='location'>00.00 00.00</div>
     </div>
     
 	<script src="js/data.js"></script>
+	<script src="js/suncalc.js"></script>
     <script src="js/app.js"></script>
 </body>
 

@@ -29,8 +29,8 @@ body {
     position: absolute;
     width: 11%;
     height: 6%;
-    top: 80%;
-    left: 70%;
+    top: 75%;
+    left: 75%;
 }
 
 #weather {
@@ -155,7 +155,7 @@ string day & month
     float: left;
 }
 #day {
-    font-size: 250%;
+    font-size: 350%;
     color: red;
     float: left;
 }
@@ -163,6 +163,33 @@ string day & month
     font-size: 250%;
     color: white;
     float: left;
+}
+#suntime {
+	font-size: 150%;
+	color: white;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 75%;
+    left: 45%;
+}
+#locationName {
+	font-size: 100%;
+	color: white;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 75%;
+    left: 23%;
+}
+#location {
+	font-size: 100%;
+	color: white;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 80%;
+    left: 23%;
 }
 
 @media screen and (-tizen-geometric-shape: circle) {

@@ -2,7 +2,10 @@
     var datetime = tizen.time.getCurrentDateTime(),
         timerUpdateDate = 0,
         hourWeatherUpdated = 0,
-        dayStepsReset = 0,
+        latitude = '53.1235',
+        longitude = '18.0084',
+        locationName = "",
+        previousDay = 0,
         flagConsole = false,
         flagDigital = false,
         battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery,
@@ -86,12 +89,15 @@
         }
     }
 
-    function updateSteps() {
+    function onceADay() {
         var day = datetime.getDay();
-        if (day != dayStepsReset) {
+        if (day != previousDay) {
             stopPedometer();
             startPedometer();
-            dayStepsReset = day;
+            previousDay = day;
+            getLocation();
+            getLocationName();
+            getSuntime();
         }
     }
 
@@ -179,7 +185,7 @@
         updateTime();
         updateDate(0);
         updateWeather();
-        updateSteps();
+        onceADay();
     }
     
     
@@ -189,8 +195,6 @@
      */
     function onsuccessCB(pedometerInfo) {
       console.log("Step status: " + pedometerInfo.stepStatus);
-      console.log("Cumulative total step count: " + pedometerInfo.cumulativeTotalStepCount);
-      
        var steps = document.getElementById('steps');
        steps.innerHTML = pedometerInfo.cumulativeTotalStepCount;
     }
@@ -198,8 +202,6 @@
       console.log("Error occurs, name: " + error.name + ", message: " + error.message);
     }
     function onchangedCB(pedometerdata) {
-      console.log("From now on, you will be notified when the pedometer data changes");
-      /* To get the current data information. */
       tizen.humanactivitymonitor.getHumanActivityData("PEDOMETER", onsuccessCB, onerrorCB);
     }
     function startPedometer() {
@@ -272,6 +274,8 @@
      */
     function getWeather() {
         var xhr = new XMLHttpRequest();
+		WEATHER_URL = WEATHER_URL.replace('<LAT>', latitude);
+		WEATHER_URL = WEATHER_URL.replace('<LON>', longitude);
         xhr.open('GET', WEATHER_URL, true);
         xhr.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -286,10 +290,10 @@
                 var weatherSpan6 = document.getElementById('weather-val6');
                 var weatherSpan9 = document.getElementById('weather-val9');
                 var weatherUpdateTimeDiv = document.getElementById('weatherUpdateTime');
-                temp =  Math.round(resp['current']['temp']);
-                temp3 =  Math.round(resp['hourly'][3]['temp']);
-                temp6 =  Math.round(resp['hourly'][6]['temp']);
-                temp9 =  Math.round(resp['hourly'][9]['temp']);
+                var temp =  Math.round(resp['current']['temp']);
+                var temp3 =  Math.round(resp['hourly'][3]['temp']);
+                var temp6 =  Math.round(resp['hourly'][6]['temp']);
+                var temp9 =  Math.round(resp['hourly'][9]['temp']);
                 weatherSpan.innerHTML = temp;
                 weatherSpan3.innerHTML = temp3;
                 weatherSpan6.innerHTML = temp6;
@@ -311,7 +315,58 @@
         return strHours;
     }
     
+    function getLocation() {
+    	console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
+    	var options = {enableHighAccuracy: false, maximumAge: Infinity, timeout: 3600000};
+        var locationDiv = document.getElementById('location');
+
+    	function successCallback(position)
+    	{
+    		console.log(position.coords);
+    		latitude = position.coords.latitude;
+    		longitude = position.coords.longitude;
+    		latRounded = Math.round( latitude * 100 + Number.EPSILON ) / 100;
+    		lonRounded = Math.round( longitude * 100 + Number.EPSILON ) / 100;
+    		locationDiv.innerHTML = "lat:&nbsp"+latRounded + " " +"lon:&nbsp" + lonRounded;
+    	}
+
+    	function errorCallback(error)
+    	{
+    		console.log(error);
+    	}
+    	navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+    }
     
+    function getLocationName() {
+        var xhr = new XMLHttpRequest();
+        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LAT>', latitude);
+        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LON>', longitude);
+        xhr.open('GET', REV_GEOLOCATION_URL, true);
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status != 200) {
+                    console.log('Geolocation server did not respond...');
+                    return;
+                }
+                console.log('Geolocation connection ok');
+                var resp = JSON.parse(this.responseText);
+                var locationNameSpan = document.getElementById('locationName-val');
+                var locationName = resp[0]['name'];
+                locationNameSpan.innerHTML = locationName;
+            } 
+        }
+        xhr.send();
+    }
+    
+    function getSuntime() {
+	    var sunriseDiv = document.getElementById('sunrise-val');
+	    var sunsetDiv = document.getElementById('sunset-val');
+		var times = SunCalc.getTimes(new Date(), latitude, longitude);
+		var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+		var sunsetStr = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+		sunriseDiv.innerHTML = sunriseStr;
+		sunsetDiv.innerHTML = sunsetStr;
+    }
     
     /**
      * Binds events.
@@ -364,6 +419,9 @@
         updateDate(0);
         bindEvents();
         startPedometer();
+        getLocation();
+        getLocationName();
+    	getSuntime();
         updateWeather();
     }
 
