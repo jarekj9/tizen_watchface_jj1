@@ -83,7 +83,7 @@
     function updateWeather() {
         var hour = datetime.getHours();
         if (hour != hourWeatherUpdated) {
-            console.log("Hours different, update weather!");
+            //console.log("Hours different, update weather!");
             getWeather();
             hourWeatherUpdated = hour;
         }
@@ -194,7 +194,7 @@
      * Steps
      */
     function onsuccessCB(pedometerInfo) {
-      console.log("Step status: " + pedometerInfo.stepStatus);
+       //console.log("Step status: " + pedometerInfo.stepStatus);
        var steps = document.getElementById('steps');
        steps.innerHTML = pedometerInfo.cumulativeTotalStepCount;
     }
@@ -283,7 +283,7 @@
                     console.log('Weather server did not respond...');
                     return;
                 }
-                console.log('Weather connection ok');
+                //console.log('Weather connection ok');
                 var resp = JSON.parse(this.responseText);
                 var weatherSpan = document.getElementById('weather-val');
                 var weatherSpan3 = document.getElementById('weather-val3');
@@ -319,13 +319,13 @@
     }
     
     function getLocation() {
-    	console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
+    	//console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
     	var options = {enableHighAccuracy: false, maximumAge: Infinity, timeout: 3600000};
         var locationDiv = document.getElementById('location');
 
     	function successCallback(position)
     	{
-    		console.log(position.coords);
+    		//console.log(position.coords);
     		latitude = position.coords.latitude;
     		longitude = position.coords.longitude;
     		latRounded = Math.round( latitude * 100 + Number.EPSILON ) / 100;
@@ -351,7 +351,7 @@
                     console.log('Geolocation server did not respond...');
                     return;
                 }
-                console.log('Geolocation connection ok');
+                //console.log('Geolocation connection ok');
                 var resp = JSON.parse(this.responseText);
                 var locationNameSpan = document.getElementById('locationName-val');
                 var locationName = resp[0]['name'];

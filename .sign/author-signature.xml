@@ -39,8 +39,8 @@ pWni+kM5jw==</DigestValue>
 </Reference>
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>n5BCcI0ZYsMgWmiWFbVPPSnbmwe8iwhcLFdAHPe+PxKKzEWvYMBIP05bnFpBXsspRwewKVzVR5YZ
-3uN02rMU0g==</DigestValue>
+<DigestValue>f9tLcQVeMYjO4aoeNnxI7QtW4gWna4UAt2WxBNnDmKhSllWj8V2m62HAQ/B8OrGFqviXkJO9xR63
+iLz2A8jtCg==</DigestValue>
 </Reference>
 <Reference URI="images%2Fbg.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -87,11 +87,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-f6OGXiQtsKT1ZhLNb7vlzIbMPTRSbIYIH/4BlRtbNmtlQii4WJlmMNMPGKygKZGlt7639iqHSDJJ
-3PrqUMPRwRwZ5QAy85R5E93QaeZH4wJ4IwGQ7EkzqfVlHXyRu89pkb5YUlloWyM95AowucTnem5N
-8EbtgSx5HxtyuUMRt5wDoPyyZpA6MAe6L/5fUAZQumqxneUwjgF9+j2/rC7cmoQpAncIQaZRYfoM
-K+gOBZvMk0zQOqsjXL0b3V9lWtBRzIXnM7Pphd3ipBA51RvUcUVN96h2Q4C/oJxDWj0aaWNABd8O
-8FCkOzn4Gn1VT4hRVJXAOJp4X07UMJL0d8Pqrw==
+X0QqASHio7uU8a8d9gaNXIJgKZ08uWV+eiJ9b84rwGq8zLeTanfAtMr3j43UPbQYXOIfww2gDUhP
+MFkHTMiM5sqRUmlTVsDNV6ndrLs8vYQbq/hpH+KO01Z9pxQvjZKKipPdshw7AHme+pSBKfdZ0BYp
+ZqTotnjXh4k8IHBdfiRQi/VgCoryPfwyx88eIGu8f4PHrl0Us4LAyCLC270cvFiFqzlbP5OxbUeI
+MhLGhdpjGG9XyPHFdVrAcmrdZWUT6mUQgQO3Vozkhqcy86Z0QsJAbHFQicCqw+m+Cizf33hDyByS
+3MK+oVp8EpIg0L4f85w1Awhs1uaUaMjhY7wqzw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
