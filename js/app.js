@@ -377,6 +377,10 @@
 		sunsetDiv.innerHTML = sunsetStr;
     }
     
+    function openWeather() { 	
+    	tizen.application.launch("com.samsung.weather");
+    }
+    
     /**
      * Binds events.
      * @private
@@ -387,6 +391,7 @@
         battery.addEventListener("chargingtimechange", getBatteryState);
         battery.addEventListener("dischargingtimechange", getBatteryState);
         battery.addEventListener("levelchange", getBatteryState);
+        document.querySelector("#weatherAll").addEventListener("click", openWeather);
 
         // add eventListener for timetick
         window.addEventListener("timetick", function() {
