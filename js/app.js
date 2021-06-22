@@ -13,7 +13,7 @@
         BACKGROUND_URL = "url('./images/bg.jpg')",
         arrDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    	arrStepsHourly = [10, 10, 10, 10, 10, 2200, 10, 10, 10, 10, 10, 10],
+    	arrStepsHourly = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
     	currentStepsTotal = 0,
     	previousStepsTotal = 0;
     
@@ -94,6 +94,9 @@
             var newSteps = currentStepsTotal - previousStepsTotal;
             if (newSteps < 10) {
             	newSteps = 10;
+            }
+            if (newSteps > 2000) {  // workaround for screen overflow
+            	newSteps = 2000;
             }
             arrStepsHourly.push(newSteps);
             arrStepsHourly.shift();
