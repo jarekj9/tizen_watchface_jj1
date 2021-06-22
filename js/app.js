@@ -12,7 +12,10 @@
         interval,
         BACKGROUND_URL = "url('./images/bg.jpg')",
         arrDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    	arrStepsHourly = [10, 10, 10, 10, 10, 2200, 10, 10, 10, 10, 10, 10],
+    	currentStepsTotal = 0,
+    	previousStepsTotal = 0;
     
     // file read
     var res,file,text,jsonInit,obj,jsonString;
@@ -80,18 +83,29 @@
         }, nextInterval);
     }
     
-    function updateWeather() {
+    function updateHourly() {
         var hour = datetime.getHours();
         if (hour != hourWeatherUpdated) {
             //console.log("Hours different, update weather!");
             getWeather();
             hourWeatherUpdated = hour;
+
+            //update steps array
+            var newSteps = currentStepsTotal - previousStepsTotal;
+            if (newSteps < 10) {
+            	newSteps = 10;
+            }
+            arrStepsHourly.push(newSteps);
+            arrStepsHourly.shift();
+            previousStepsTotal = currentStepsTotal;
+            drawStepsChart();
         }
     }
 
     function onceADay() {
         var day = datetime.getDay();
         if (day != previousDay) {
+        	currentStepsTotal = previousStepsTotal = 0;
             stopPedometer();
             startPedometer();
             previousDay = day;
@@ -109,7 +123,7 @@
         var strHours = document.getElementById("str-hours"),
             strConsole = document.getElementById("str-console"),
             strMinutes = document.getElementById("str-minutes"),
-            strAmpm = document.getElementById("str-ampm"),
+            //strAmpm = document.getElementById("str-ampm"),
             hour = datetime.getHours(),
             minute = datetime.getMinutes();
 
@@ -117,13 +131,14 @@
         strMinutes.innerHTML = minute;
 
         if (hour < 12) {
-            strAmpm.innerHTML = "AM";
+            //strAmpm.innerHTML = "AM";
             if (hour < 10) {
                 strHours.innerHTML = "0" + hour;
             }
-        } else {
-            strAmpm.innerHTML = "PM";
         }
+        //else {
+            //strAmpm.innerHTML = "PM";
+        //}
 
         if (minute < 10) {
             strMinutes.innerHTML = "0" + minute;
@@ -173,7 +188,7 @@
      * @private
      */
     function getBatteryState() {
-        var batteryDiv = document.getElementById("battery");
+        var batteryDiv = document.getElementById("batteryVal");
         batteryDiv.textContent = Math.round(battery.level * 100) + "%";
     }
 
@@ -184,7 +199,7 @@
         datetime = tizen.time.getCurrentDateTime();
         updateTime();
         updateDate(0);
-        updateWeather();
+        updateHourly();
         onceADay();
     }
     
@@ -195,8 +210,9 @@
      */
     function onsuccessCB(pedometerInfo) {
        //console.log("Step status: " + pedometerInfo.stepStatus);
-       var steps = document.getElementById('steps');
-       steps.innerHTML = pedometerInfo.cumulativeTotalStepCount;
+       var stepsDiv = document.getElementById('steps');
+       currentStepsTotal = pedometerInfo.cumulativeTotalStepCount;
+       stepsDiv.innerHTML = currentStepsTotal;
     }
     function onerrorCB(error) {
       console.log("Error occurs, name: " + error.name + ", message: " + error.message);
@@ -381,6 +397,18 @@
     	tizen.application.launch("com.samsung.weather");
     }
     
+    function drawStepsChart() {
+    	console.log('TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST');
+    	var stepsChartDiv = document.getElementById('stepsChartBars');
+    	var stepsChartDivContent = "";
+    	var i;
+    	for (i = 0; i < arrStepsHourly.length; i++) {
+    		stepsChartDivContent += '<div class="stepsChartElement" style="height: '+ arrStepsHourly[i]/10 +'px;"></div>';
+    	}
+    	console.log(stepsChartDivContent);
+    	stepsChartDiv.innerHTML = stepsChartDivContent;
+    }
+    
     /**
      * Binds events.
      * @private
@@ -436,7 +464,7 @@
         getLocation();
         getLocationName();
     	getSuntime();
-        updateWeather();
+        updateHourly();
     }
 
     window.onload = init();

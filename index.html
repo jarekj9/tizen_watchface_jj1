@@ -11,7 +11,13 @@
 <body>
     <div id='digital-body'>
     	<div id='stepsHeader'>steps</div>
-        <div id='battery'>100%</div>
+        <div id='battery'>
+		  <div id='batteryIconOuter' style='display: inline-block;'>
+			  <div id='batteryIconInnerEmpty'></div>
+			  <div id='batteryIconInnerFull'></div>
+		  </div>
+		  <div id='batteryVal' style='display: inline-block;'>100%</div>
+        </div>
         <div id = 'weatherAll'>
 	        <div id='weather'><span id='weather-val'>20</span>&deg;C</div>
 	        <div id='weather3'><span class="mini">+3h:&nbsp;</span><span id='weather-val3'>20</span>&deg;C</div>
@@ -20,14 +26,34 @@
         </div>
         <div id='steps'>10000</div>
         <div id='weatherUpdateTime'>00:00</div>
-        <div id='rec-time'>
+        <div id='time'>
             <div class='RobotoLight Red' id='str-hours'></div>
             <div id='str-console'>:</div>
             <div class='RobotoLight' id='str-minutes'></div>
-            <div id='str-ampm'></div>
+            <!-- <div id='str-ampm'></div> -->
+        </div>
+        
+        <div id='stepsChart'>
+        	<div id='stepsChartBars'>
+		        <div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+		        <div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+		        <div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+		        <div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+				<div class="stepsChartElement" style="height: 10px;"></div>
+			</div>
+			<div style='text-align: center'>
+				<span style='float: left;'>0</span><span>6</span><span style='float: right;'>12</span>
+			</div>
         </div>
 
-        <div class='RobotoLight' id='rec-string-time'>
+        <div class='RobotoLight' id='date'>
             <span id='weekDay'></span><span id='day'></span><span id='month'></span>
         </div>
         <table id='suntime'>
