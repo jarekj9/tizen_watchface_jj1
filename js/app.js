@@ -95,7 +95,7 @@
             if (newSteps < 10) {
             	newSteps = 10;
             }
-            if (newSteps > 2000) {  // workaround for screen overflow
+            if (newSteps > 2000) {  // workaround for screen overflow, max bar height is set to 200px (2000/10)
             	newSteps = 2000;
             }
             arrStepsHourly.push(newSteps);
@@ -401,14 +401,13 @@
     }
     
     function drawStepsChart() {
-    	console.log('TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST');
     	var stepsChartDiv = document.getElementById('stepsChartBars');
-    	var stepsChartDivContent = "";
-    	var i;
-    	for (i = 0; i < arrStepsHourly.length; i++) {
+    	var stepsChartDivContent = '<div class="stepsChartElement" style="background-color: black;">'+Math.abs(datetime.getHours() - 12) +'h</div>'+
+		        				   '<div class="stepsChartFake" style="height: 200px;"></div> <!-- To force div to max height of 200px -->';
+    	for (var i = 0; i < arrStepsHourly.length; i++) {
     		stepsChartDivContent += '<div class="stepsChartElement" style="height: '+ arrStepsHourly[i]/10 +'px;"></div>';
     	}
-    	console.log(stepsChartDivContent);
+    	stepsChartDivContent += '<div class="stepsChartElement" style="background-color: black;">'+datetime.getHours()+'h</div>';
     	stepsChartDiv.innerHTML = stepsChartDivContent;
     }
     
