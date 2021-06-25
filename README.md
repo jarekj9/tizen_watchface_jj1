@@ -3,6 +3,7 @@
 My first watchface for Galaxy Watch.
 
 It is not present in samsung store.
+
 Installation:
 
  - Install Tizen Studio
