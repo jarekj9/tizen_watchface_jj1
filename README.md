@@ -10,6 +10,7 @@ Installation:
  - In Tizen Studio Package Manager install everything for 4.0 or 5.0 Wearable, Baseline SDK + in Extension SDK tab: Extras -> Samsung Certificate Extension and Wearable Extension
  - Open the project in Tizen Studio
  - Open Device Manager, add Galaxy Watch, connect it, then add certificates:
+ 
      https://thecustomizewindows.com/2019/11/connect-galaxy-watch-to-tizen-studio-galaxy-watch-designer/
  - Register on https://api.openweathermap.org for free plan on 'Current weather and forecast', get API key
  - Write API key in js/data.js:
