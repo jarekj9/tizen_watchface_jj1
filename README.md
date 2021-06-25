@@ -4,6 +4,7 @@ My first watchface for Galaxy Watch.
 
 It is not present in samsung store.
 Installation:
+
  - Install Tizen Studio
  - In Tizen Studio Package Manager install everything for 4.0 or 5.0 Wearable, Baseline SDK + in Extension SDK tab: Extras -> Samsung Certificate Extension and Wearable Extension
  - Open the project in Tizen Studio
