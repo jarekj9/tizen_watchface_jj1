@@ -16,7 +16,7 @@ It is not present in samsung store.
  - Write API key in js/data.js:
     OPEN_WEATHERMAP_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-If galaxy watch is connected and certificate is added, rightclick on project folder in left bar and chosse : Run As -> Tizen Web Application.
+If galaxy watch is connected and certificate is added, rightclick on project folder in left bar and choose : Run As -> Tizen Web Application.
 It will install the app on watch and run it. Later it can be chosen from watchfaces list.
 
 
