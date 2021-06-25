@@ -23,7 +23,7 @@ It will install the app on watch and run it. Later it can be chosen from watchfa
 This is a bit tricky, please note, that:
 - Sometimes galaxy watch just needs restart to make it work
 - Wifi Needs to be active
-- Watch needs to be connected while adding certificate
+- Watch needs to be connected while adding certificate (without, app cannot be installed on device)
 
 
 Features:
