@@ -4,7 +4,7 @@ My first watchface for Galaxy Watch.
 
 It is not present in samsung store.
 
-Installation:
+##Installation:
 
  - Install Tizen Studio
  - In Tizen Studio Package Manager install everything for 4.0 or 5.0 Wearable, Baseline SDK + in Extension SDK tab: Extras -> Samsung Certificate Extension and Wearable Extension
@@ -20,13 +20,13 @@ If galaxy watch is connected and certificate is added, rightclick on project fol
 It will install the app on watch and run it. Later it can be chosen from watchfaces list.
 
 
-This is a bit tricky, please note, that:
+###This is a bit tricky, please note, that:
 - Sometimes galaxy watch just needs restart to make it work
 - Wifi Needs to be active
 - Watch needs to be connected while adding certificate (without, app cannot be installed on device)
 
 
-Features:
+##Features:
 - steps, steps bar-chart in background for last 12 hours; steps start counting from 0 when watchface is started, because it has no access to Samsung Health
 - temperature (current - hourly, +3h, +6h, +9h), it also shows time when temperature was updated
 - gps coordinates and location name from API (checked at start and once per day)
