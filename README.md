@@ -19,6 +19,13 @@ Installation:
 If galaxy watch is connected and certificate is added, rightclick on project folder in left bar and chosse : Run As -> Tizen Web Application.
 It will install the app on watch and run it. Later it can be chosen from watchfaces list.
 
+
+This is a bit tricky, please note, that:
+- Sometimes galaxy watch just needs restart to make it work
+- Wifi Needs to be active
+- Watch needs to be connected while adding certificate
+
+
 Features:
 - steps, steps bar-chart in background for last 12 hours; steps start counting from 0 when watchface is started, because it has no access to Samsung Health
 - temperature (current - hourly, +3h, +6h, +9h), it also shows time when temperature was updated
