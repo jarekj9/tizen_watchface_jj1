@@ -136,7 +136,7 @@ string day & month
 #date{
     position: absolute;
     height: 30%;
-    top: 60%;
+    top: 55%;
     left: 20%;
 }
 #weekDay {
@@ -185,10 +185,10 @@ string day & month
 	font-size: 150%;
 	color: white;
     position: absolute;
-    top: 20%;
-    left: 7%;
+    top: 16%;
+    left: 5%;
     opacity: 0.4;
-    width: 300px;
+    width: 320px;
     height: 170px;	
 }
 

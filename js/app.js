@@ -402,12 +402,12 @@
     
     function drawStepsChart() {
     	var stepsChartDiv = document.getElementById('stepsChartBars');
-    	var stepsChartDivContent = '<div class="stepsChartElement" style="background-color: black;">'+Math.abs(datetime.getHours() - 12) +'h</div>'+
+    	var stepsChartDivContent = '<div class="stepsChartElement" style="background-color: black; width:30px;">'+Math.abs(datetime.getHours() - 12) +'h</div>'+
 		        				   '<div class="stepsChartFake" style="height: 200px;"></div> <!-- To force div to max height of 200px -->';
     	for (var i = 0; i < arrStepsHourly.length; i++) {
     		stepsChartDivContent += '<div class="stepsChartElement" style="height: '+ arrStepsHourly[i]/10 +'px;"></div>';
     	}
-    	stepsChartDivContent += '<div class="stepsChartElement" style="background-color: black;">'+datetime.getHours()+'h</div>';
+    	stepsChartDivContent += '<div class="stepsChartElement" style="background-color: black; width:30px;">'+datetime.getHours()+'h</div>';
     	stepsChartDiv.innerHTML = stepsChartDivContent;
     }
     
