@@ -197,6 +197,7 @@ string day & month
   margin: 2px;
   background-color: darkgrey;
   display: inline-block;
+  text-align: center;
 }
 .stepsChartFake {
   width: 0px;
