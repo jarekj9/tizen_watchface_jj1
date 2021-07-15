@@ -299,7 +299,7 @@
         xhr.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status != 200) {
-                    console.log('Weather server did not respond...');
+                    console.log('Weather server did not respond...');                   
                     return;
                 }
                 //console.log('Weather connection ok');

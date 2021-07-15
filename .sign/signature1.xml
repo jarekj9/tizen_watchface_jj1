@@ -24,13 +24,13 @@ GaZ8tl+nQA==</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>MU3ktUQtc0bmUc5RG9nbBeVg77BucAaJ+rmXIqzwZxMfMGxXKFiXln60TqDEuqSYn8IkvKeHzzzI
-oXACgqnrrw==</DigestValue>
+<DigestValue>Eu7I/zi99FWcCtrKK+BBqnRGqMmIEQndiw8xRGbAjM0V4sS+UVd/sSyUDkPOs/VAOYama44K3cnH
+7Rp58c4lOg==</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>pqbVAdiE2AN8BCtFp+PFGxp+WnOYTzT5winTRn1qxt13sSYq/diU+0TBkYqhOWp9HpyXYxlHqE/+
-uOipAtZmcA==</DigestValue>
+<DigestValue>mX6cdVYk7BPKaXOYLNf8OorQc4tM3Q38f/OSMurBKlcxoStiPkIYpyTfLI6BqA7MUFnBjElfRzH7
+4FqmH+kRPQ==</DigestValue>
 </Reference>
 <Reference URI="css%2FRoboto-Thin.ttf">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -64,8 +64,8 @@ SkbhBRsC1g==</DigestValue>
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>ADaTT9T+/aUFnbKkyr3X3xr4piF19N1xhjyqNFxq3sEnQDevGXNjC7Rg7IZ8Y2pT7PVtOwN4Am3L
-lXB3BRvMlw==</DigestValue>
+<DigestValue>c6AkYAiCQMHJZn7ao8evnmriOywk4Rv3yIyW/zRPRIdpxD4anH/qmo8YN7zZiepm2J1t8YtJcSiH
+xK6NMDiS3w==</DigestValue>
 </Reference>
 <Reference URI="js%2Fdata.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -97,11 +97,11 @@ GyvKX9Snig==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-e5oIamxi85FcAx/xnRQhfKSviyNWpHActjNgpgKqhKNm8YCXlbFI8pWrsYgC8ArkcqBkvmKR4cde
-qBfNKLl7IlPKkcEj4AJJNY/Ee+AZOBx7BIGnEQ1VgFs/Dc6k1zskFd3+gccf4edKjVadVCxjpPsi
-MyBEe3eDHiNEN3ozAneJmb0FBYg1QSKZmLpiIj842VN9V5LNyi1rWqWPCqVDadl0GFOh0QWg67Xx
-0LY5fdkVD2wD8GORha9wCaOttf3D91Q96dTAsrAuwDETb+mBWNeL5i+ap8nb5lgeh+AWhpli9Yhv
-a+1Rh8Es9Za0M+qe/wro7X/nbMf5wOFQnSZdjA==
+HHKS4Rox6d8omwhBpL8+p9xpJahRcMzypuDP7TtGA/7OOKXIdzfZotQ6KbLYZ4EbKj6wIJB/0pZ9
+NoQ3CwhfhTybpX2140Y1mJzRsH4oUBuiW4fQkYCHOtYVDPl/AtUsWR9Z2ydkxvBcabWzgtHqu4Am
+sqoUNozBfLm5ba8ZCLW38CGFbUL+328kydHvV2Q+9Vm94GBHjaBgJi9ht9oMovYARopMJ+L4R5MT
+CZGaFij4rcmCPI+vMd345BHiNIFQUcUO7VqLSYoIlP7a99AQHeCmfWJuGh0COgOFOWxE6dDlqI/9
+sUHFRQQZ8Bz/SpTXE3NtajznXEHLCo2WRwUefQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
