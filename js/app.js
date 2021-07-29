@@ -1,7 +1,7 @@
 (function() {
     var datetime = tizen.time.getCurrentDateTime(),
         timerUpdateDate = 0,
-        hourWeatherUpdated = 0,
+        hourLastUpdate = 0,
         latitude = '53.1235',
         longitude = '18.0084',
         locationName = "",
@@ -85,23 +85,13 @@
     
     function updateHourly() {
         var hour = datetime.getHours();
-        if (hour != hourWeatherUpdated) {
+        if (hour != hourLastUpdate) {
             //console.log("Hours different, update weather!");
             getWeather();
-            hourWeatherUpdated = hour;
+            hourLastUpdate = hour;
 
-            //update steps array
-            var newSteps = currentStepsTotal - previousStepsTotal;
-            if (newSteps < 10) {
-            	newSteps = 10;
-            }
-            if (newSteps > 2000) {  // workaround for screen overflow, max bar height is set to 200px (2000/10)
-            	newSteps = 2000;
-            }
-            arrStepsHourly.push(newSteps);
-            arrStepsHourly.shift();
-            previousStepsTotal = currentStepsTotal;
-            drawStepsChart();
+            updateStepsChart();
+
         }
     }
 
@@ -113,9 +103,22 @@
             startPedometer();
             previousDay = day;
             getLocation();
-            getLocationName();
             getSuntime();
         }
+    }
+    
+    function updateStepsChart() {
+	    var newSteps = currentStepsTotal - previousStepsTotal;
+	    if (newSteps < 10) {
+	    	newSteps = 10;
+	    }
+	    if (newSteps > 2000) {  // workaround for screen overflow, max bar height is set to 200px (2000/10)
+	    	newSteps = 2000;
+	    }
+	    arrStepsHourly.push(newSteps);
+	    arrStepsHourly.shift();
+	    previousStepsTotal = currentStepsTotal;
+	    drawStepsChart();
     }
 
     /**
@@ -357,6 +360,7 @@
     		console.log(error);
     	}
     	navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
+    	getLocationName();
     }
     
     function getLocationName() {
@@ -401,8 +405,12 @@
     }
     
     function drawStepsChart() {
+    	var hourMinus12 = datetime.getHours() - 12;
+    	if (hourMinus12 < 0) {
+    		hourMinus12 = hourMinus12 + 24;
+    	}
     	var stepsChartDiv = document.getElementById('stepsChartBars');
-    	var stepsChartDivContent = '<div class="stepsChartElement" style="background-color: black; width:30px;">'+Math.abs(datetime.getHours() - 12) +'h</div>'+
+    	var stepsChartDivContent = '<div class="stepsChartElement" style="background-color: black; width:30px;">'+ hourMinus12 +'h</div>'+
 		        				   '<div class="stepsChartFake" style="height: 200px;"></div> <!-- To force div to max height of 200px -->';
     	for (var i = 0; i < arrStepsHourly.length; i++) {
     		stepsChartDivContent += '<div class="stepsChartElement" style="height: '+ arrStepsHourly[i]/10 +'px;"></div>';
@@ -422,6 +430,7 @@
         battery.addEventListener("dischargingtimechange", getBatteryState);
         battery.addEventListener("levelchange", getBatteryState);
         document.querySelector("#weatherAll").addEventListener("click", openWeather);
+        document.querySelector("#location").addEventListener("click", getLocation);
 
         // add eventListener for timetick
         window.addEventListener("timetick", function() {
@@ -464,7 +473,6 @@
         bindEvents();
         startPedometer();
         getLocation();
-        getLocationName();
     	getSuntime();
         updateHourly();
     }
