@@ -88,9 +88,8 @@
         if (hour != hourLastUpdate) {
             //console.log("Hours different, update weather!");
             getWeather();
-            hourLastUpdate = hour;
-
             updateStepsChart();
+            hourLastUpdate = hour;
 
         }
     }
@@ -108,6 +107,20 @@
     }
     
     function updateStepsChart() {
+    	var hour = datetime.getHours();
+       	var hourDistance = hour - hourLastUpdate;
+   		//var debugDiv = document.getElementById('debug');
+   		//debugDiv.innerHTML  = 'test';
+		if (hourDistance < 0) {
+			hourDistance = hour + 24 - hourLastUpdate;
+		}
+		if(hourDistance > 1) { // when missed update
+			for(var x=1; x<hourDistance; x++) {
+	            arrStepsHourly.push(10);
+	            arrStepsHourly.shift();
+			}
+		}	
+    	
 	    var newSteps = currentStepsTotal - previousStepsTotal;
 	    if (newSteps < 10) {
 	    	newSteps = 10;

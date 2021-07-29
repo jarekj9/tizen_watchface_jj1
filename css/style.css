@@ -235,6 +235,15 @@ string day & month
   margin: auto;
 }
 
+#debug {
+  background-color: black;
+  font-size: 150%; 
+  color: white;
+  position: absolute;
+  top: 16%;
+  left: 5%;
+}
+
 @media screen and (-tizen-geometric-shape: circle) {
 
 
