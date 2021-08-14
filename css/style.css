@@ -1,3 +1,10 @@
+:root {
+    --yellow:#F0F3BD;
+    --light-green:#02C39A;
+    --dark-turquoise:#05668D;
+    --mid-green:#00A896;
+    --dark-green:#028090;
+}
 @font-face { 
 	font-family: 'RobotoLight'; 
 	src: url('Roboto-Thin.ttf');
@@ -25,7 +32,7 @@ body {
 
 #weather {
 	font-size: 150%;
-	color: white;
+	color: var(--yellow);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -35,7 +42,7 @@ body {
 
 #weather3 {
 	font-size: 150%;
-	color: white;
+	color: var(--yellow);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -44,11 +51,11 @@ body {
 }
 .mini {
 	font-size: 60%;
-	color: white;
+	color: var(--light-green);
 }
 #weather6 {
 	font-size: 150%;
-	color: white;
+	color: var(--yellow);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -57,7 +64,7 @@ body {
 }
 #weather9 {
 	font-size: 150%;
-	color: white;
+	color: var(--yellow);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -66,7 +73,7 @@ body {
 }
 #stepsHeader {
 	font-size: 100%;
-	color: white;
+	color: var(--light-green);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -75,7 +82,7 @@ body {
 }
 #steps {
 	font-size: 150%;
-	color: white;
+	color: var(--yellow);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -85,7 +92,7 @@ body {
 
 #weatherUpdateTime {
 	font-size: 100%;
-	color: white;
+	color: var(--light-green);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -107,24 +114,24 @@ hour&minutes
 #str-hours {
     font-size: 550%;
     float: left;
-    color: red;
+    color: var(--yellow);
 }
 
 #str-console {
     font-size: 550%;
     float: left;
-    color: white;
+    color: var(--light-green);
 }
 
 #str-minutes {
     font-size: 550%;
     float: left;
-    color: white;
+    color: var(--light-green);
 }
 
 #str-ampm {
     font-size: 200%;
-    color: white;
+    color: var(--light-green);
     padding-top: 20%;
 }
 
@@ -141,31 +148,31 @@ string day & month
 }
 #weekDay {
     font-size: 250%;
-    color: white;
+    color: var(--light-green);
     float: left;
 }
 #day {
     font-size: 350%;
-    color: red;
+    color: var(--yellow);
     float: left;
 }
 #month {
     font-size: 250%;
-    color: white;
+    color: var(--light-green);
     float: left;
 }
 #suntime {
 	font-size: 150%;
-	color: white;
+	color: var(--yellow);
     position: absolute;
     width: 11%;
     height: 6%;
     top: 75%;
-    left: 45%;
+    left: 33%;
 }
 #locationName {
 	font-size: 100%;
-	color: white;
+	color: var(--light-green);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -174,7 +181,7 @@ string day & month
 }
 #location {
 	font-size: 100%;
-	color: white;
+	color: var(--light-green);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -183,7 +190,7 @@ string day & month
 }
 #stepsChart {
 	font-size: 150%;
-	color: white;
+	color: var(--light-green);
     position: absolute;
     top: 16%;
     left: 5%;
@@ -195,7 +202,8 @@ string day & month
 .stepsChartElement {
   width: 16px;
   margin: 2px;
-  background-color: darkgrey;
+  color: var(--mid-green);
+  background-color: var(--dark-turquoise);
   display: inline-block;
   text-align: center;
 }
@@ -207,7 +215,7 @@ string day & month
 }
 #battery {
 	font-size: 150%;
-	color: white;
+	color: var(--light-green);
     position: absolute;
     top: 35%;
     left: 3%;
@@ -224,7 +232,7 @@ string day & month
 #batteryIconInnerFull {
   height: 15px;
   width: 8px;
-  background-color: darkgreen;
+  background-color: var(--dark-green);
   margin: auto;
   margin
 }
@@ -238,7 +246,7 @@ string day & month
 #debug {
   background-color: black;
   font-size: 150%; 
-  color: white;
+  color: var(--light-green);
   position: absolute;
   top: 16%;
   left: 5%;
