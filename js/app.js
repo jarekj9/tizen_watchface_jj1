@@ -356,7 +356,8 @@
     function getLocation() {
     	//console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
     	var options = {enableHighAccuracy: false, maximumAge: Infinity, timeout: 3600000};
-        var locationDiv = document.getElementById('location');
+    	// not for she version:
+    	//var locationDiv = document.getElementById('location');
 
     	function successCallback(position)
     	{
@@ -365,7 +366,8 @@
     		longitude = position.coords.longitude;
     		latRounded = Math.round( latitude * 100 + Number.EPSILON ) / 100;
     		lonRounded = Math.round( longitude * 100 + Number.EPSILON ) / 100;
-    		locationDiv.innerHTML = "lat:&nbsp"+latRounded + " " +"lon:&nbsp" + lonRounded;
+    		// not for she version:
+    		//locationDiv.innerHTML = "lat:&nbsp"+latRounded + " " +"lon:&nbsp" + lonRounded;
     	}
 
     	function errorCallback(error)
@@ -373,29 +375,30 @@
     		console.log(error);
     	}
     	navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
-    	getLocationName();
+    	// not for she version:
+    	//getLocationName();
     }
     
-    function getLocationName() {
-        var xhr = new XMLHttpRequest();
-        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LAT>', latitude);
-        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LON>', longitude);
-        xhr.open('GET', REV_GEOLOCATION_URL, true);
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status != 200) {
-                    console.log('Geolocation server did not respond...');
-                    return;
-                }
-                //console.log('Geolocation connection ok');
-                var resp = JSON.parse(this.responseText);
-                var locationNameSpan = document.getElementById('locationName-val');
-                var locationName = resp[0]['name'];
-                locationNameSpan.innerHTML = locationName;
-            } 
-        }
-        xhr.send();
-    }
+//  function getLocationName() {
+//  var xhr = new XMLHttpRequest();
+//  REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LAT>', latitude);
+//  REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LON>', longitude);
+//  xhr.open('GET', REV_GEOLOCATION_URL, true);
+//  xhr.onreadystatechange = function() {
+//      if (this.readyState == 4) {
+//          if (this.status != 200) {
+//              console.log('Geolocation server did not respond...');
+//              return;
+//          }
+//          //console.log('Geolocation connection ok');
+//          var resp = JSON.parse(this.responseText);
+//          var locationNameSpan = document.getElementById('locationName-val');
+//          var locationName = resp[0]['name'];
+//          locationNameSpan.innerHTML = locationName;
+//      } 
+//  }
+//  xhr.send();
+//}
     
 
     
@@ -443,7 +446,8 @@
         battery.addEventListener("dischargingtimechange", getBatteryState);
         battery.addEventListener("levelchange", getBatteryState);
         document.querySelector("#weatherAll").addEventListener("click", openWeather);
-        document.querySelector("#location").addEventListener("click", getLocation);
+        // not for she version:
+        //document.querySelector("#location").addEventListener("click", getLocation);
 
         // add eventListener for timetick
         window.addEventListener("timetick", function() {
