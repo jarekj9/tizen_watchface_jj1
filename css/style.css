@@ -1,11 +1,37 @@
+:root {
+    --yellow:#F0F3BD;
+    --light-green:#02C39A;
+    --dark-turquoise:#05668D;
+    --mid-green:#00A896;
+    --dark-green:#028090;
+}
 @font-face { 
 	font-family: 'RobotoLight'; 
 	src: url('Roboto-Thin.ttf');
 }
+@font-face { 
+	font-family: 'Digital7Regular'; 
+	src: url('digital-7.regular.ttf');
+}
+@font-face { 
+	font-family: 'AdvancedDotDigital7Regular'; 
+	src: url('advanced-dot-digital-7.regular.ttf');
+}
+
+
+
 
 .RobotoLight{
     font-family: RobotoLight;
 }
+
+.Digital7Regular{
+    font-family: Digital7Regular;
+}
+.AdvancedDotDigital7Regular{
+    font-family: AdvancedDotDigital7Regular;
+}
+
 
 body {
     width: 100%;
@@ -85,11 +111,11 @@ body {
 
 #weatherUpdateTime {
 	font-size: 100%;
-	color: white;
+	color: grey;
     position: absolute;
     width: 11%;
     height: 6%;
-    top: 20%;
+    top: 17%;
     left: 43%;
 }
 /*
@@ -98,10 +124,10 @@ hour&minutes
 
 #time {
     position: absolute;
-    width: 80%;
-    height: 30%;
-    top: 26%;
-    left: 20%;
+    width: 100%;
+    height: 100%;
+    top: 40%;
+    left: 5%;
 }
 
 #str-hours {
@@ -113,13 +139,13 @@ hour&minutes
 #str-console {
     font-size: 550%;
     float: left;
-    color: white;
+    color: red;
 }
 
 #str-minutes {
     font-size: 550%;
     float: left;
-    color: white;
+    color: red;
 }
 
 #str-ampm {
@@ -136,22 +162,22 @@ string day & month
 #date{
     position: absolute;
     height: 30%;
-    top: 55%;
-    left: 20%;
+    top: 65%;
+    left: 23%;
 }
 #weekDay {
     font-size: 250%;
-    color: white;
+    color: #F0EDEE;
     float: left;
 }
 #day {
     font-size: 350%;
-    color: red;
+    color: #F0EDEE;
     float: left;
 }
 #month {
     font-size: 250%;
-    color: white;
+    color: #F0EDEE;
     float: left;
 }
 #suntime {
@@ -209,8 +235,8 @@ string day & month
 	font-size: 150%;
 	color: white;
     position: absolute;
-    top: 35%;
-    left: 3%;
+    top: 3%;
+    left: 40%;
 }
 
 #batteryIconOuter {

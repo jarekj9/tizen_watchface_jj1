@@ -90,7 +90,7 @@
             getWeather();
             updateStepsChart();
             hourLastUpdate = hour;
-
+            getBatteryState();
         }
     }
 
@@ -207,8 +207,10 @@
      * @private
      */
     function getBatteryState() {
-        var batteryDiv = document.getElementById("batteryVal");
-        batteryDiv.textContent = Math.round(battery.level * 100) + "%";
+        //var batteryDiv = document.getElementById("batteryVal");
+        //batteryDiv.textContent = Math.round(battery.level * 100) + "%";
+    	var mainCircle = document.getElementById("mainCircle");
+        mainCircle.className = "c100 center p" + battery.level * 100;
     }
 
     /**
@@ -354,13 +356,13 @@
     }
     
     function getLocation() {
-    	//console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
+    	console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
     	var options = {enableHighAccuracy: false, maximumAge: Infinity, timeout: 3600000};
         var locationDiv = document.getElementById('location');
 
     	function successCallback(position)
     	{
-    		//console.log(position.coords);
+    		console.log(position.coords);
     		latitude = position.coords.latitude;
     		longitude = position.coords.longitude;
     		latRounded = Math.round( latitude * 100 + Number.EPSILON ) / 100;
@@ -409,8 +411,23 @@
 			sunsetHours = timePartAddZero(times.sunset.getHours()),
 			sunriseStr = sunriseHours + ':' + sunriseMinutes,
 			sunsetStr = sunsetHours + ':' + sunsetMinutes;
-		sunriseDiv.innerHTML = sunriseStr;
-		sunsetDiv.innerHTML = sunsetStr;
+		//sunriseDiv.innerHTML = sunriseStr;
+		//sunsetDiv.innerHTML = sunsetStr;
+		
+		document.getElementsByClassName('char1')[0].innerHTML = '&#8593;';
+		document.getElementsByClassName('char2')[0].innerHTML = sunriseStr[0];
+		document.getElementsByClassName('char3')[0].innerHTML = sunriseStr[1];
+		document.getElementsByClassName('char4')[0].innerHTML = ':';
+		document.getElementsByClassName('char5')[0].innerHTML = sunriseStr[3];
+		document.getElementsByClassName('char6')[0].innerHTML = sunriseStr[4];
+		document.getElementsByClassName('char7')[0].innerHTML = ' ';
+		document.getElementsByClassName('char8')[0].innerHTML = '&#8595;';
+		document.getElementsByClassName('char9')[0].innerHTML = sunsetStr[0];
+		document.getElementsByClassName('char10')[0].innerHTML = sunsetStr[1];
+		document.getElementsByClassName('char11')[0].innerHTML = ':';
+		document.getElementsByClassName('char12')[0].innerHTML = sunsetStr[3];
+		document.getElementsByClassName('char13')[0].innerHTML = sunsetStr[4];
+		
     }
     
     function openWeather() { 	

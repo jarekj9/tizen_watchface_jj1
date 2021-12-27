@@ -6,11 +6,22 @@
     <meta name="description" content="Digital Watch Application"/>
     <title>Digital Watch</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/circle_chart.css"/>
+    <link rel="stylesheet" type="text/css" href="css/circle_text.css"/>
 </head>
 
 <body>
     <div id='digital-body'>
+
+        <div id="mainCircle" class="c100 p60 center">
+	        <div class="slice">
+	            <div class="bar"></div>
+	            <div class="fill"></div>
+	        </div>
+		</div>
+    
     	<div id='stepsHeader'>steps</div>
+        <!--
         <div id='battery'>
 		  <div id='batteryIconOuter' style='display: inline-block;'>
 			  <div id='batteryIconInnerEmpty'></div>
@@ -18,6 +29,7 @@
 		  </div>
 		  <div id='batteryVal' style='display: inline-block;'>100%</div>
         </div>
+        !-->
         <div id = 'weatherAll'>
 	        <div id='weather'><span id='weather-val'>20</span>&deg;C</div>
 	        <div id='weather3'><span class="mini">+3h:&nbsp;</span><span id='weather-val3'>20</span>&deg;C</div>
@@ -25,16 +37,17 @@
 	        <div id='weather9'><span class="mini">+9h:&nbsp;</span><span id='weather-val9'>20</span>&deg;C</div>
         </div>
         <div id='steps'>10000</div>
+        
         <div id='weatherUpdateTime'>00:00</div>
         <div id='time'>
         	<div id='debug'></div>
-            <div class='RobotoLight Red' id='str-hours'></div>
-            <div id='str-console'>:</div>
-            <div class='RobotoLight' id='str-minutes'></div>
+            <div class='AdvancedDotDigital7Regular Red' id='str-hours'></div>
+            <div class='AdvancedDotDigital7Regular' id='str-console'>:</div>
+            <div class='AdvancedDotDigital7Regular' id='str-minutes'></div>
             <!-- <div id='str-ampm'></div> -->
         </div>
         
-        <div id='stepsChart'>
+        <div id='stepsChart' style="display: none;"> <!-- HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN -->
         	<div id='stepsChartBars'>
         		<div class="stepsChartElement" style="background-color: black; width:30px;">12h</div>
 		        <div class="stepsChartFake" style="height: 200px;"></div> <!-- To force div to max height of 200px -->
@@ -52,27 +65,39 @@
 				<div class="stepsChartElement" style="height: 10px;"></div>
 				<div class="stepsChartElement" style="background-color: black; width:30px;">0h</div>
 			</div>
-			<!-- Old legend
-			<div style='text-align: center'>
-				<span style='float: left;'>0</span><span>6</span><span style='float: right;'>12</span>
-			</div>
-			-->
         </div>
 
-        <div class='RobotoLight' id='date'>
+        <div class='Digital7Regular' id='date'>
             <span id='weekDay'></span><span id='day'></span><span id='month'></span>
         </div>
         <table id='suntime'>
         	<tr>
-	        	<td>&#9728;</td>
-	        <td style="float:left;">
+	        	<td style="display: none;">&#9728;</td> <!-- HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN -->
+	        <td style="float:left; display: none;"> <!-- HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN -->
 		        <div id='sunrise'>&#8593;<span class="mini">&nbsp;</span><span id='sunrise-val'>00:00</span></div>
 		        <div id='sunset'>&#8595;<span class="mini">&nbsp;</span><span id='sunset-val'>00:00</span></div>
 		    </td>
 		    </tr>
         </table>
-        <div id='locationName'><span id='locationName-val'>City</span></div>
-        <div id='location'>00.00 00.00</div>
+        <div id='locationName' style="display: none;"><span id='locationName-val'>City</span></div> <!-- HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN -->
+        <div id='location' style="display: none;">00.00 00.00</div> <!-- HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN HIDDEN -->
+        
+		<div class="circleTextBottomRight">
+		  <span class="char1">&#8593;</span>
+		  <span class="char2">0</span>
+		  <span class="char3">8</span>
+		  <span class="char4">:</span>
+		  <span class="char5">0</span>
+		  <span class="char6">0</span>
+		  <span class="char7"></span>
+		  <span class="char8">&#8595;</span>
+		  <span class="char9">1</span>
+		  <span class="char10">6</span>
+		  <span class="char11">:</span>
+		  <span class="char12">0</span>
+		  <span class="char13">0</span>
+		</div> 
+    
     </div>
     
 	<script src="js/data.js"></script>

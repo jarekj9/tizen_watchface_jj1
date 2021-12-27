@@ -1,0 +1,49 @@
+/*
+circleTextTopRight is not centered yet
+*/
+.circleTextTopRight span {
+  font: 26px Monaco, MonoSpace;
+  color: #blue;
+  height: 200px;
+  position: absolute;
+  width: 20px;
+  left: 50;
+  top: 50;
+  transform-origin: bottom center;
+}
+.circleTextTopRight .char1 { transform: rotate(6deg); }
+.circleTextTopRight .char2 { transform: rotate(12deg); }
+.circleTextTopRight .char3 { transform: rotate(18deg); }
+.circleTextTopRight .char4 { transform: rotate(24deg); }
+.circleTextTopRight .char5 { transform: rotate(30deg); }
+.circleTextTopRight .char6 { transform: rotate(36deg); }
+.circleTextTopRight .char7 { transform: rotate(42deg); }
+.circleTextTopRight .char8 { transform: rotate(48deg); }
+.circleTextTopRight .char9 { transform: rotate(54deg); }
+.circleTextTopRight .char10 { transform: rotate(60deg); }
+.circleTextTopRight .char11 { transform: rotate(66deg); }
+.circleTextTopRight .char12 { transform: rotate(72deg); }
+
+.circleTextBottomRight span {
+  font: 26px Monaco, MonoSpace;
+  color: white;
+  height: 100px;
+  position: absolute;
+  width: 20px;
+  left: 145px;
+  top: 325px;
+  transform-origin: 70% -170%;
+}
+.circleTextBottomRight .char1 { transform: rotate(350deg); }
+.circleTextBottomRight .char2 { transform: rotate(345deg); }
+.circleTextBottomRight .char3 { transform: rotate(340deg); }
+.circleTextBottomRight .char4 { transform: rotate(335deg); }
+.circleTextBottomRight .char5 { transform: rotate(330deg); }
+.circleTextBottomRight .char6 { transform: rotate(325deg); }
+.circleTextBottomRight .char7 { transform: rotate(320deg); }
+.circleTextBottomRight .char8 { transform: rotate(315deg); }
+.circleTextBottomRight .char9 { transform: rotate(310deg); }
+.circleTextBottomRight .char10 { transform: rotate(305deg); }
+.circleTextBottomRight .char11 { transform: rotate(300deg); }
+.circleTextBottomRight .char12 { transform: rotate(295deg); }
+.circleTextBottomRight .char13 { transform: rotate(290deg); }
