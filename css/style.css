@@ -48,15 +48,25 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
 }
-
+/*
+#weatherUpdateTime {
+	font-size: 100%;
+	color: grey;
+    position: absolute;
+    width: 11%;
+    height: 6%;
+    top: 5%;
+    left: 43%;
+}
+*/
 #weather {
 	font-size: 150%;
 	color: white;
     position: absolute;
     width: 11%;
     height: 6%;
-    top: 10%;
-    left: 43%;
+    top: 4%;
+    left: 44%;
 }
 
 #weather3 {
@@ -66,11 +76,11 @@ body {
     width: 11%;
     height: 6%;
     top: 10%;
-    left: 60%;
+    left: 57%;
 }
 .mini {
 	font-size: 60%;
-	color: white;
+	color: grey;
 }
 #weather6 {
 	font-size: 150%;
@@ -88,7 +98,7 @@ body {
     width: 11%;
     height: 6%;
     top: 22%;
-    left: 68%;
+    left: 69%;
 }
 #stepsHeader {
 	font-size: 100%;
@@ -107,16 +117,6 @@ body {
     height: 6%;
     top: 10%;
     left: 23%;
-}
-
-#weatherUpdateTime {
-	font-size: 100%;
-	color: grey;
-    position: absolute;
-    width: 11%;
-    height: 6%;
-    top: 17%;
-    left: 43%;
 }
 /*
 hour&minutes
@@ -162,8 +162,8 @@ string day & month
 #date{
     position: absolute;
     height: 30%;
-    top: 65%;
-    left: 23%;
+    top: 70%;
+    left: 35%;
 }
 #weekDay {
     font-size: 250%;

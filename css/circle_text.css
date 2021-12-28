@@ -1,28 +1,34 @@
 /*
-circleTextTopRight is not centered yet
+Generate chars css:
+x = 430
+for c in range(1,14):
+    print(f".circleTextBottomLeft .char{c} {{ transform: rotate({x}deg); }}")
+    x = x - 5
 */
-.circleTextTopRight span {
+
+.circleTextBottomLeft span {
   font: 26px Monaco, MonoSpace;
-  color: #blue;
-  height: 200px;
+  color: white;
+  height: 100px;
   position: absolute;
   width: 20px;
-  left: 50;
-  top: 50;
-  transform-origin: bottom center;
+  left: 185px;
+  top: 325px;
+  transform-origin: 70% -170%;
 }
-.circleTextTopRight .char1 { transform: rotate(6deg); }
-.circleTextTopRight .char2 { transform: rotate(12deg); }
-.circleTextTopRight .char3 { transform: rotate(18deg); }
-.circleTextTopRight .char4 { transform: rotate(24deg); }
-.circleTextTopRight .char5 { transform: rotate(30deg); }
-.circleTextTopRight .char6 { transform: rotate(36deg); }
-.circleTextTopRight .char7 { transform: rotate(42deg); }
-.circleTextTopRight .char8 { transform: rotate(48deg); }
-.circleTextTopRight .char9 { transform: rotate(54deg); }
-.circleTextTopRight .char10 { transform: rotate(60deg); }
-.circleTextTopRight .char11 { transform: rotate(66deg); }
-.circleTextTopRight .char12 { transform: rotate(72deg); }
+.circleTextBottomLeft .char1 { transform: rotate(425deg); }
+.circleTextBottomLeft .char2 { transform: rotate(420deg); } 
+.circleTextBottomLeft .char3 { transform: rotate(415deg); } 
+.circleTextBottomLeft .char4 { transform: rotate(410deg); } 
+.circleTextBottomLeft .char5 { transform: rotate(405deg); } 
+.circleTextBottomLeft .char6 { transform: rotate(400deg); } 
+.circleTextBottomLeft .char7 { transform: rotate(395deg); } 
+.circleTextBottomLeft .char8 { transform: rotate(390deg); } 
+.circleTextBottomLeft .char9 { transform: rotate(385deg); } 
+.circleTextBottomLeft .char10 { transform: rotate(380deg); }
+.circleTextBottomLeft .char11 { transform: rotate(375deg); }
+.circleTextBottomLeft .char12 { transform: rotate(370deg); }
+.circleTextBottomLeft .char13 { transform: rotate(365deg); }
 
 .circleTextBottomRight span {
   font: 26px Monaco, MonoSpace;

@@ -413,21 +413,19 @@
 			sunsetStr = sunsetHours + ':' + sunsetMinutes;
 		//sunriseDiv.innerHTML = sunriseStr;
 		//sunsetDiv.innerHTML = sunsetStr;
-		
-		document.getElementsByClassName('char1')[0].innerHTML = '&#8593;';
-		document.getElementsByClassName('char2')[0].innerHTML = sunriseStr[0];
-		document.getElementsByClassName('char3')[0].innerHTML = sunriseStr[1];
-		document.getElementsByClassName('char4')[0].innerHTML = ':';
-		document.getElementsByClassName('char5')[0].innerHTML = sunriseStr[3];
-		document.getElementsByClassName('char6')[0].innerHTML = sunriseStr[4];
-		document.getElementsByClassName('char7')[0].innerHTML = ' ';
-		document.getElementsByClassName('char8')[0].innerHTML = '&#8595;';
-		document.getElementsByClassName('char9')[0].innerHTML = sunsetStr[0];
-		document.getElementsByClassName('char10')[0].innerHTML = sunsetStr[1];
-		document.getElementsByClassName('char11')[0].innerHTML = ':';
-		document.getElementsByClassName('char12')[0].innerHTML = sunsetStr[3];
-		document.getElementsByClassName('char13')[0].innerHTML = sunsetStr[4];
-		
+		document.getElementsByClassName('circleTextBottomLeft char1')[0].innerHTML = '&#8593;';
+		document.getElementsByClassName('circleTextBottomLeft char2')[0].innerHTML = sunriseStr[0];
+		document.getElementsByClassName('circleTextBottomLeft char3')[0].innerHTML = sunriseStr[1];
+		document.getElementsByClassName('circleTextBottomLeft char4')[0].innerHTML = ':';
+		document.getElementsByClassName('circleTextBottomLeft char5')[0].innerHTML = sunriseStr[3];
+		document.getElementsByClassName('circleTextBottomLeft char6')[0].innerHTML = sunriseStr[4];
+		document.getElementsByClassName('circleTextBottomLeft char7')[0].innerHTML = ' ';
+		document.getElementsByClassName('circleTextBottomLeft char8')[0].innerHTML = '&#8595;';
+		document.getElementsByClassName('circleTextBottomLeft char9')[0].innerHTML = sunsetStr[0];
+		document.getElementsByClassName('circleTextBottomLeft char10')[0].innerHTML = sunsetStr[1];
+		document.getElementsByClassName('circleTextBottomLeft char11')[0].innerHTML = ':';
+		document.getElementsByClassName('circleTextBottomLeft char12')[0].innerHTML = sunsetStr[3];
+		document.getElementsByClassName('circleTextBottomLeft char13')[0].innerHTML = sunsetStr[4];
     }
     
     function openWeather() { 	
