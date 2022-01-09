@@ -88,9 +88,8 @@
         if (hour != hourLastUpdate) {
             //console.log("Hours different, update weather!");
             getWeather();
-            updateStepsChart();
             hourLastUpdate = hour;
-            getBatteryState();
+            //getBatteryState();
         }
     }
 
@@ -104,34 +103,6 @@
             getLocation();
             getSuntime();
         }
-    }
-    
-    function updateStepsChart() {
-    	var hour = datetime.getHours();
-       	var hourDistance = hour - hourLastUpdate;
-   		//var debugDiv = document.getElementById('debug');
-   		//debugDiv.innerHTML  = 'test';
-		if (hourDistance < 0) {
-			hourDistance = hour + 24 - hourLastUpdate;
-		}
-		if(hourDistance > 1) { // when missed update
-			for(var x=1; x<hourDistance; x++) {
-	            arrStepsHourly.push(10);
-	            arrStepsHourly.shift();
-			}
-		}	
-    	
-	    var newSteps = currentStepsTotal - previousStepsTotal;
-	    if (newSteps < 10) {
-	    	newSteps = 10;
-	    }
-	    if (newSteps > 2000) {  // workaround for screen overflow, max bar height is set to 200px (2000/10)
-	    	newSteps = 2000;
-	    }
-	    arrStepsHourly.push(newSteps);
-	    arrStepsHourly.shift();
-	    previousStepsTotal = currentStepsTotal;
-	    drawStepsChart();
     }
 
     /**
