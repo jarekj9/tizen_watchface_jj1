@@ -1,9 +1,9 @@
 :root {
-    --date-color: #F0EDEE;
-    --weather-color: white;
-    --steps-color: white;
-    --time-color: red;
-    --mini-color: grey;
+    --date-color: #00ff8c;
+    --weather-color: #00ff8c;
+    --steps-color: #00ff8c;
+    --time-color: #00e34c;
+    --mini-color: #018f62;
 }
 @font-face { 
 	font-family: 'RobotoLight'; 

@@ -39,13 +39,13 @@ B920nztAOw==</DigestValue>
 </Reference>
 <Reference URI="css%2Fcircle_chart.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>/N+XgaiITSgkl64qXsuQxeThbKs3uSLzmcBlSPyZ/OZRPLlB388bzEEf5l2QmdCc4zL6vK+ROlLg
-ogdmM5E4Hg==</DigestValue>
+<DigestValue>rqrkeOraTdpmC6HKo8/l7X+lMX/ysm046L9znXKq03ZPVYvrjfmwQSlQXlNud7fEYzau9ItYqhmu
+WbkAWUMRXw==</DigestValue>
 </Reference>
 <Reference URI="css%2Fcircle_text.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>PTDMnj3WwBnwlOz7KZy8B/yVdls/AX5mspswETjI2BHKycfYyQ4olv0BIkLWbsy3vfEZueRCQ9ZN
-+D136qm6SA==</DigestValue>
+<DigestValue>9dRbrgodfClHwtJ3IOz9hoTlW+53aLRb3OoruEvjsUM5vXK8+XKQmJK13zwOPidBJZDpmqZpJBDG
+PhDnDEz9bw==</DigestValue>
 </Reference>
 <Reference URI="css%2Fdigital-7.regular.ttf">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -54,8 +54,8 @@ zIkSXF6lmw==</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>3AK3Kl8lgOLdhW5LN7lWCspttVXiLS8Gvo7WmKtDQV8cx9UYNletVzbu67Y3u+snOgtKd3lxXSrg
-mULwvPhZQg==</DigestValue>
+<DigestValue>opgY/0xasbh9YPktIkFJNmp1ZtBmoTHI2bXDWxNYvUKnmv7/GGc2dFXzpLYtfjVh0QKbNrtmWLW5
+C3VhZnsYCw==</DigestValue>
 </Reference>
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -112,11 +112,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-QEi7PSI3h1hH3niQzhFLBdZ/kcffUMiNn7kf/VGd6jzbdJotZI8PybHKxyxmR0TIwV9Jkhz0QEVl
-u5saWQ/ql1yeo5fPlP6Qm2jSRHkj0qRny7TJe//HiI8Hxs+NqodRMnFz3+7yzc0gloIq+X1TPtSF
-WZRHl0INE3Ov3YVFF5PDEYd8m1+EpYWavN5mp4Nj+/S34k/V98VAckW1daJvJn9hiTV6JjQYcYx2
-CMX9PmtYa5ALE/m5sJ2KduoAjp48LoaHtr8l2sJLBgqL1rmxXSA5sMjeWG9wrcRyEVYA+dXR3fAG
-zxBGvfxiBpiOvwQ+V0RRuACjBq3GXsVfzAxaAw==
+aViyGm/fybi5zyrv3uvH0m6cMfvRV0+XkejaVs8OtcHAuXzWLr0sFBD2ObyxGh0vdDzobzufvFiG
+Ae3kXORPdL/1N1ZSAMm6f6cefEFeIEeUWRhcAe/PzBgM31Dk2HSEezlIIo/uRpIgOPXstifFqWxX
+zxi6uB9nKV1zTLvS8zA+6v0MWN/yG7rg1lqZgcrWs1+QO1vecXhRdWVaoY6k4uDC7+7VzMXPNIFH
+ag5R8BAxtcuNLDmLYfYEtL89x7RdFLLZx6XWK65bVZK6uqQm4LcUaLT01FkFMkUh5CHAez0ZOk3b
+1RlhKLIMTHRBIa+vjAhVNE4XwnDupLMU4HMoxg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
