@@ -1,9 +1,9 @@
 :root {
-    --yellow:#F0F3BD;
-    --light-green:#02C39A;
-    --dark-turquoise:#05668D;
-    --mid-green:#00A896;
-    --dark-green:#028090;
+    --date-color: #F0EDEE;
+    --weather-color: white;
+    --steps-color: white;
+    --time-color: red;
+    --mini-color: grey;
 }
 @font-face { 
 	font-family: 'RobotoLight'; 
@@ -48,20 +48,10 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
 }
-/*
-#weatherUpdateTime {
-	font-size: 100%;
-	color: grey;
-    position: absolute;
-    width: 11%;
-    height: 6%;
-    top: 5%;
-    left: 43%;
-}
-*/
+
 #weather {
 	font-size: 150%;
-	color: white;
+	color: var(--weather-color);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -71,7 +61,7 @@ body {
 
 #weather3 {
 	font-size: 150%;
-	color: white;
+	color: var(--weather-color);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -80,11 +70,11 @@ body {
 }
 .mini {
 	font-size: 60%;
-	color: grey;
+	color: var(--mini-color);
 }
 #weather6 {
 	font-size: 150%;
-	color: white;
+	color: var(--weather-color);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -93,7 +83,7 @@ body {
 }
 #weather9 {
 	font-size: 150%;
-	color: white;
+	color: var(--weather-color);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -102,7 +92,7 @@ body {
 }
 #stepsHeader {
 	font-size: 100%;
-	color: white;
+	color: var(--steps-color);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -111,7 +101,7 @@ body {
 }
 #steps {
 	font-size: 150%;
-	color: white;
+	color: var(--steps-color);
     position: absolute;
     width: 11%;
     height: 6%;
@@ -133,27 +123,20 @@ hour&minutes
 #str-hours {
     font-size: 550%;
     float: left;
-    color: red;
+    color: var(--time-color);
 }
 
 #str-console {
     font-size: 550%;
     float: left;
-    color: red;
+    color: var(--time-color);
 }
 
 #str-minutes {
     font-size: 550%;
     float: left;
-    color: red;
+    color: var(--time-color);
 }
-
-#str-ampm {
-    font-size: 200%;
-    color: white;
-    padding-top: 20%;
-}
-
 
 /*
 string day & month
@@ -167,27 +150,18 @@ string day & month
 }
 #weekDay {
     font-size: 250%;
-    color: #F0EDEE;
+    color: var(--date-color);
     float: left;
 }
 #day {
     font-size: 350%;
-    color: #F0EDEE;
+    color: var(--date-color);
     float: left;
 }
 #month {
     font-size: 250%;
-    color: #F0EDEE;
+    color: var(--date-color);
     float: left;
-}
-#suntime {
-	font-size: 150%;
-	color: white;
-    position: absolute;
-    width: 11%;
-    height: 6%;
-    top: 75%;
-    left: 45%;
 }
 #locationName {
 	font-size: 100%;
@@ -206,36 +180,6 @@ string day & month
     height: 6%;
     top: 80%;
     left: 23%;
-}
-
-#battery {
-	font-size: 150%;
-	color: white;
-    position: absolute;
-    top: 3%;
-    left: 40%;
-}
-
-#batteryIconOuter {
-  height: 20px;
-  width: 10px;
-  background-color: grey;
-  border-style: solid;
-  border-color: lightgrey;
-  border-width: 1px;
-}
-#batteryIconInnerFull {
-  height: 15px;
-  width: 8px;
-  background-color: darkgreen;
-  margin: auto;
-  margin
-}
-#batteryIconInnerEmpty {
-  height: 5px;
-  width: 5px;
-  background-color: grey;
-  margin: auto;
 }
 
 #debug {

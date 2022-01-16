@@ -86,10 +86,8 @@
     function updateHourly() {
         var hour = datetime.getHours();
         if (hour != hourLastUpdate) {
-            //console.log("Hours different, update weather!");
             getWeather();
             hourLastUpdate = hour;
-            //getBatteryState();
         }
     }
 
@@ -113,7 +111,6 @@
         var strHours = document.getElementById("str-hours"),
             strConsole = document.getElementById("str-console"),
             strMinutes = document.getElementById("str-minutes"),
-            //strAmpm = document.getElementById("str-ampm"),
             hour = datetime.getHours(),
             minute = datetime.getMinutes();
 
@@ -121,14 +118,10 @@
         strMinutes.innerHTML = minute;
 
         if (hour < 12) {
-            //strAmpm.innerHTML = "AM";
             if (hour < 10) {
                 strHours.innerHTML = "0" + hour;
             }
         }
-        //else {
-            //strAmpm.innerHTML = "PM";
-        //}
 
         if (minute < 10) {
             strMinutes.innerHTML = "0" + minute;
@@ -178,8 +171,6 @@
      * @private
      */
     function getBatteryState() {
-        //var batteryDiv = document.getElementById("batteryVal");
-        //batteryDiv.textContent = Math.round(battery.level * 100) + "%";
     	var mainCircle = document.getElementById("mainCircle");
         mainCircle.className = "c100 center p" + battery.level * 100;
     }
@@ -373,17 +364,14 @@
 
     
     function getSuntime() {
-	    var sunriseDiv = document.getElementById('sunrise-val'),
-		    sunsetDiv = document.getElementById('sunset-val'),
-			times = SunCalc.getTimes(new Date(), latitude, longitude),
+		var times = SunCalc.getTimes(new Date(), latitude, longitude),
 			sunriseMinutes = timePartAddZero(times.sunrise.getMinutes()),
 			sunriseHours = timePartAddZero(times.sunrise.getHours()),
 			sunsetMinutes = timePartAddZero(times.sunset.getMinutes()),
 			sunsetHours = timePartAddZero(times.sunset.getHours()),
 			sunriseStr = sunriseHours + ':' + sunriseMinutes,
 			sunsetStr = sunsetHours + ':' + sunsetMinutes;
-		//sunriseDiv.innerHTML = sunriseStr;
-		//sunsetDiv.innerHTML = sunsetStr;
+
 		document.getElementsByClassName('circleTextBottomLeft char1')[0].innerHTML = '&#8593;';
 		document.getElementsByClassName('circleTextBottomLeft char2')[0].innerHTML = sunriseStr[0];
 		document.getElementsByClassName('circleTextBottomLeft char3')[0].innerHTML = sunriseStr[1];

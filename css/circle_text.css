@@ -6,9 +6,14 @@ for c in range(1,14):
     x = x - 5
 */
 
+:root {
+    --circle-text-color: white;
+}
+
+
 .circleTextBottomLeft span {
   font: 26px Monaco, MonoSpace;
-  color: white;
+  color: var(--circle-text-color);
   height: 100px;
   position: absolute;
   width: 20px;
@@ -32,7 +37,7 @@ for c in range(1,14):
 
 .circleTextBottomRight span {
   font: 26px Monaco, MonoSpace;
-  color: white;
+  color: var(--circle-text-color);
   height: 100px;
   position: absolute;
   width: 20px;
