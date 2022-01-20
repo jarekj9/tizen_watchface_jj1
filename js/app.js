@@ -172,7 +172,7 @@
      */
     function getBatteryState() {
     	var mainCircle = document.getElementById("mainCircle");
-        mainCircle.className = "c100 center p" + battery.level * 100;
+        mainCircle.className = "c100 center p" + Math.round(battery.level * 100);
     }
 
     /**
