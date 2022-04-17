@@ -272,6 +272,13 @@
      * Reads weather API
      */
     function getWeather() {
+    	
+    	function getColorByWeather(weatherString) {
+    		if (weatherString == "Clear") return "#FFD700";
+    		if (weatherString == "Rain") return "#008cff";
+    		return "FFFFFF";
+    	}
+    	
         var xhr = new XMLHttpRequest();
 		WEATHER_URL = WEATHER_URL.replace('<LAT>', latitude);
 		WEATHER_URL = WEATHER_URL.replace('<LON>', longitude);
@@ -293,10 +300,19 @@
                 var temp3 =  Math.round(resp['hourly'][3]['temp']);
                 var temp6 =  Math.round(resp['hourly'][6]['temp']);
                 var temp9 =  Math.round(resp['hourly'][9]['temp']);
+                var tempColor =  getColorByWeather(resp['hourly'][0]['weather'][0]['main']);
+                var temp3Color =  getColorByWeather(resp['hourly'][3]['weather'][0]['main']);
+                var temp6Color =  getColorByWeather(resp['hourly'][6]['weather'][0]['main']);
+                var temp9Color =  getColorByWeather(resp['hourly'][9]['weather'][0]['main']);
                 weatherSpan.innerHTML = temp;
                 weatherSpan3.innerHTML = temp3;
                 weatherSpan6.innerHTML = temp6;
                 weatherSpan9.innerHTML = temp9;
+                weatherSpan.style.color = tempColor;
+                weatherSpan3.style.color = temp3Color;
+                weatherSpan6.style.color = temp6Color;
+                weatherSpan9.style.color = temp9Color;
+                
                 weatherUpdateTimeDiv.innerHTML = getHourStr() + ':' + getMinuteStr();
             } 
         }
