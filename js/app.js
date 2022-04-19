@@ -276,7 +276,7 @@
     	function getColorByWeather(weatherString) {
     		if (weatherString == "Clear") return "#FFD700";
     		if (weatherString == "Rain") return "#008cff";
-    		return "FFFFFF";
+    		return "#FFFFFF";
     	}
     	
         var xhr = new XMLHttpRequest();
