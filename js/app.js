@@ -15,7 +15,8 @@
         arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     	arrStepsHourly = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
     	currentStepsTotal = 0,
-    	previousStepsTotal = 0;
+    	previousStepsTotal = 0,
+    	timeColor = "#FFFFFF";
     
     // file read
     var res,file,text,jsonInit,obj,jsonString;
@@ -273,9 +274,11 @@
      */
     function getWeather() {
     	
-    	function getColorByWeather(weatherString) {
-    		if (weatherString == "Clear") return "#FFD700";
-    		if (weatherString == "Rain") return "#008cff";
+    	function getColorByWeather(weatherStringH1, weatherStringH2, weatherStringH3) {
+    		if (weatherStringH1 == "Rain" || weatherStringH2 == "Rain" || weatherStringH3 == "Rain") return "#008cff";
+    		if ((weatherStringH1 == "Clear" && weatherStringH2 == "Clear") || 
+    			(weatherStringH2 == "Clear" && weatherStringH3 == "Clear") ||
+    			(weatherStringH1 == "Clear" && weatherStringH3 == "Clear")) return "#FFD700";
     		return "#FFFFFF";
     	}
     	
@@ -300,10 +303,10 @@
                 var temp3 =  Math.round(resp['hourly'][3]['temp']);
                 var temp6 =  Math.round(resp['hourly'][6]['temp']);
                 var temp9 =  Math.round(resp['hourly'][9]['temp']);
-                var tempColor =  getColorByWeather(resp['hourly'][0]['weather'][0]['main']);
-                var temp3Color =  getColorByWeather(resp['hourly'][3]['weather'][0]['main']);
-                var temp6Color =  getColorByWeather(resp['hourly'][6]['weather'][0]['main']);
-                var temp9Color =  getColorByWeather(resp['hourly'][9]['weather'][0]['main']);
+                var tempColor =  getColorByWeather(resp['hourly'][0]['weather'][0]['main'], resp['hourly'][0]['weather'][0]['main'], resp['hourly'][0]['weather'][0]['main']);
+                var temp3Color =  getColorByWeather(resp['hourly'][1]['weather'][0]['main'], resp['hourly'][2]['weather'][0]['main'], resp['hourly'][3]['weather'][0]['main']);
+                var temp6Color =  getColorByWeather(resp['hourly'][4]['weather'][0]['main'], resp['hourly'][5]['weather'][0]['main'], resp['hourly'][6]['weather'][0]['main']);
+                var temp9Color =  getColorByWeather(resp['hourly'][7]['weather'][0]['main'], resp['hourly'][8]['weather'][0]['main'], resp['hourly'][9]['weather'][0]['main']);
                 weatherSpan.innerHTML = temp;
                 weatherSpan3.innerHTML = temp3;
                 weatherSpan6.innerHTML = temp6;
@@ -422,6 +425,17 @@
     	stepsChartDiv.innerHTML = stepsChartDivContent;
     }
     
+    function changeTimeColor() {
+    	if (timeColor == "#FFFFFF") {
+    		timeColor == "#cc0000"
+    	}
+    	else {
+    		timeColor == "#FFFFFF"
+    	}
+    	document.getElementById('str-hours').style.color = timeColor;
+    	document.getElementById('str-minutes').style.color = timeColor;
+    }
+    
     /**
      * Binds events.
      * @private
@@ -434,6 +448,7 @@
         battery.addEventListener("levelchange", getBatteryState);
         document.querySelector("#weatherAll").addEventListener("click", openWeather);
         document.querySelector("#location").addEventListener("click", getLocation);
+        document.querySelector("#time").addEventListener("click", changeTimeColor);
 
         // add eventListener for timetick
         window.addEventListener("timetick", function() {
