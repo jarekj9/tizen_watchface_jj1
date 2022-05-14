@@ -426,13 +426,14 @@
     }
     
     function changeTimeColor() {
+    	var root = document.querySelector(':root');
     	if (timeColor == "#FFFFFF") {
     		timeColor = "#cc0000";
-    		console.log("change color to cc0000");
+    		root.style.setProperty('--circle-full-color', '#cc0000');
     	}
     	else {
     		timeColor = "#FFFFFF";
-    		console.log("change color to FFFFFF");
+    		root.style.setProperty('--circle-full-color', '#aaaaaa');
     	}
     	document.getElementById('str-hours').style.color = timeColor;
     	document.getElementById('str-minutes').style.color = timeColor;
