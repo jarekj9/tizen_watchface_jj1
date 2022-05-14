@@ -427,10 +427,12 @@
     
     function changeTimeColor() {
     	if (timeColor == "#FFFFFF") {
-    		timeColor == "#cc0000"
+    		timeColor = "#cc0000";
+    		console.log("change color to cc0000");
     	}
     	else {
-    		timeColor == "#FFFFFF"
+    		timeColor = "#FFFFFF";
+    		console.log("change color to FFFFFF");
     	}
     	document.getElementById('str-hours').style.color = timeColor;
     	document.getElementById('str-minutes').style.color = timeColor;
