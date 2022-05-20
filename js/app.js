@@ -16,7 +16,8 @@
     	arrStepsHourly = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
     	currentStepsTotal = 0,
     	previousStepsTotal = 0,
-    	timeColor = "#FFFFFF";
+    	colorTheme = 1,
+    	nrOfColorThemes = 3;
     
     // file read
     var res,file,text,jsonInit,obj,jsonString;
@@ -275,10 +276,10 @@
     function getWeather() {
     	
     	function getColorByWeather(weatherStringH1, weatherStringH2, weatherStringH3) {
-    		if (weatherStringH1 == "Rain" || weatherStringH2 == "Rain" || weatherStringH3 == "Rain") return "#008cff";
+    		if (weatherStringH1 == "Rain" || weatherStringH2 == "Rain" || weatherStringH3 == "Rain") return "#76c1ff";
     		if ((weatherStringH1 == "Clear" && weatherStringH2 == "Clear") || 
     			(weatherStringH2 == "Clear" && weatherStringH3 == "Clear") ||
-    			(weatherStringH1 == "Clear" && weatherStringH3 == "Clear")) return "#FFD700";
+    			(weatherStringH1 == "Clear" && weatherStringH3 == "Clear")) return "#ff9700";
     		return "#FFFFFF";
     	}
     	
@@ -414,7 +415,7 @@
     	var hourMinus12 = datetime.getHours() - 12;
     	if (hourMinus12 < 0) {
     		hourMinus12 = hourMinus12 + 24;
-    	}
+    	}r
     	var stepsChartDiv = document.getElementById('stepsChartBars');
     	var stepsChartDivContent = '<div class="stepsChartElement" style="background-color: black; width:30px;">'+ hourMinus12 +'h</div>'+
 		        				   '<div class="stepsChartFake" style="height: 200px;"></div> <!-- To force div to max height of 200px -->';
@@ -427,14 +428,26 @@
     
     function changeTimeColor() {
     	var root = document.querySelector(':root');
-    	if (timeColor == "#FFFFFF") {
-    		timeColor = "#cc0000";
-    		root.style.setProperty('--circle-full-color', '#cc0000');
+    	var timeColor = "#FFFFFF";
+    	colorTheme += 1;
+    	if (colorTheme == nrOfColorThemes + 1) {
+    		colorTheme = 1;
     	}
-    	else {
+
+    	
+    	if (colorTheme == 1) {
     		timeColor = "#FFFFFF";
     		root.style.setProperty('--circle-full-color', '#aaaaaa');
     	}
+    	else if (colorTheme == 2) {
+    		timeColor = "#cc0000";
+    		root.style.setProperty('--circle-full-color', '#cc0000');
+    	}
+    	else if (colorTheme == 3) {
+    		timeColor = "#e6ccb2";
+    		root.style.setProperty('--circle-full-color', '#c38e70');
+    	}
+    	
     	document.getElementById('str-hours').style.color = timeColor;
     	document.getElementById('str-minutes').style.color = timeColor;
     }
@@ -445,10 +458,15 @@
      */
     function bindEvents() {
         // add eventListener for battery state
-        battery.addEventListener("chargingchange", getBatteryState);
-        battery.addEventListener("chargingtimechange", getBatteryState);
-        battery.addEventListener("dischargingtimechange", getBatteryState);
-        battery.addEventListener("levelchange", getBatteryState);
+    	try {
+    		battery.addEventListener("chargingchange", getBatteryState);
+    		battery.addEventListener("chargingtimechange", getBatteryState);
+    		battery.addEventListener("dischargingtimechange", getBatteryState);
+    		battery.addEventListener("levelchange", getBatteryState);
+    	}
+    	catch (e)  {
+    		console.log(e)
+    	}
         document.querySelector("#weatherAll").addEventListener("click", openWeather);
         document.querySelector("#location").addEventListener("click", getLocation);
         document.querySelector("#time").addEventListener("click", changeTimeColor);
