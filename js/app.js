@@ -2,9 +2,10 @@
     var datetime = tizen.time.getCurrentDateTime(),
         timerUpdateDate = 0,
         hourLastUpdate = 0,
-        latitude = '53.1235',
-        longitude = '18.0084',
+        latitude = '40.73',
+        longitude = '73.94',
         locationName = "",
+        locationShown = false,
         previousDay = 0,
         flagConsole = false,
         flagDigital = false,
@@ -100,7 +101,7 @@
             stopPedometer();
             startPedometer();
             previousDay = day;
-            getLocation();
+            getLocation(isHighAccuracy=false);
             getSuntime();
         }
     }
@@ -284,7 +285,7 @@
     	}
     	
         var xhr = new XMLHttpRequest();
-		WEATHER_URL = WEATHER_URL.replace('<LAT>', latitude);
+		WEATHER_URL = WEATHER_URL_TEMPLATE.replace('<LAT>', latitude);
 		WEATHER_URL = WEATHER_URL.replace('<LON>', longitude);
         xhr.open('GET', WEATHER_URL, true);
         xhr.onreadystatechange = function() {
@@ -337,9 +338,32 @@
         return strHours;
     }
     
-    function getLocation() {
-    	console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
-    	var options = {enableHighAccuracy: false, maximumAge: Infinity, timeout: 3600000};
+    function onDayClick() {
+    	if (!locationShown) {
+            document.getElementById("locationDiv").style.display = "block";
+            document.getElementById("circleTextBottomLeft").style.display = "none";
+    	}
+    	else {
+            document.getElementById("locationDiv").style.display = "none";
+            document.getElementById("circleTextBottomLeft").style.display = "block";
+    	}
+    	locationShown = !locationShown;
+    }
+    
+    function onMonthClick() {
+        latitude = '00.00';
+        longitude = '00.00';
+        document.getElementById('locationName-val').innerHTML = "Locating...";
+        document.getElementById('location').innerHTML = "";
+    	getLocation(isHighAccuracy=true);
+    }
+    
+    function getLocation(isHighAccuracy) {
+    	//console.log("Location Permission: " + tizen.ppm.checkPermission("http://tizen.org/privilege/location"));
+    	var positionAge = Infinity;
+    	if (isHighAccuracy) positionAge = 60000;
+
+     	var options = {enableHighAccuracy: false, maximumAge: positionAge, timeout: 3600000};
         var locationDiv = document.getElementById('location');
 
     	function successCallback(position)
@@ -347,23 +371,24 @@
     		console.log(position.coords);
     		latitude = position.coords.latitude;
     		longitude = position.coords.longitude;
-    		latRounded = Math.round( latitude * 100 + Number.EPSILON ) / 100;
-    		lonRounded = Math.round( longitude * 100 + Number.EPSILON ) / 100;
+    		var latRounded = Math.round( latitude * 10000 + Number.EPSILON ) / 10000;
+    		var lonRounded = Math.round( longitude * 10000 + Number.EPSILON ) / 10000;
     		locationDiv.innerHTML = "lat:&nbsp"+latRounded + " " +"lon:&nbsp" + lonRounded;
+    		getLocationName(latitude, longitude);
+    		getWeather();
     	}
 
     	function errorCallback(error)
     	{
     		console.log(error);
     	}
-    	navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
-    	getLocationName();
+    	navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);	
     }
     
-    function getLocationName() {
+    function getLocationName(lat, lon) {
         var xhr = new XMLHttpRequest();
-        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LAT>', latitude);
-        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LON>', longitude);
+        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL_TEMPLATE.replace('<LAT>', lat);
+        REV_GEOLOCATION_URL = REV_GEOLOCATION_URL.replace('<LON>', lon);
         xhr.open('GET', REV_GEOLOCATION_URL, true);
         xhr.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -374,7 +399,7 @@
                 //console.log('Geolocation connection ok');
                 var resp = JSON.parse(this.responseText);
                 var locationNameSpan = document.getElementById('locationName-val');
-                var locationName = resp[0]['name'];
+                locationName = resp[0]['name'];
                 locationNameSpan.innerHTML = locationName;
             } 
         }
@@ -468,7 +493,8 @@
     		console.log(e)
     	}
         document.querySelector("#weatherAll").addEventListener("click", openWeather);
-        document.querySelector("#location").addEventListener("click", getLocation);
+        document.querySelector("#day").addEventListener("click", onDayClick);
+        document.querySelector("#month").addEventListener("click", onMonthClick);
         document.querySelector("#time").addEventListener("click", changeTimeColor);
 
         // add eventListener for timetick
@@ -511,7 +537,7 @@
         updateDate(0);
         bindEvents();
         startPedometer();
-        getLocation();
+        getLocation(isHighAccuracy=false);
     	getSuntime();
         updateHourly();
     }

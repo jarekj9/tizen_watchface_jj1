@@ -11,6 +11,7 @@
     <feature name="http://tizen.org/feature/network.net_proxy"/>
     <feature name="http://tizen.org/feature/network.secure_element"/>
     <feature name="http://tizen.org/feature/network.wifi"/>
+    <feature name="http://tizen.org/feature/location.batch"/>
     <icon src="icon.png"/>
     <name>tizenWatchfaceJJ1</name>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>

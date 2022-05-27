@@ -169,17 +169,17 @@ string day & month
     position: absolute;
     width: 11%;
     height: 6%;
-    top: 75%;
-    left: 23%;
+    top: 64%;
+    left: 11%;
 }
 #location {
 	font-size: 100%;
 	color: white;
     position: absolute;
     width: 11%;
-    height: 6%;
-    top: 80%;
-    left: 23%;
+    height: 60%;
+    top: 69%;
+    left: 11%;
 }
 
 #debug {
